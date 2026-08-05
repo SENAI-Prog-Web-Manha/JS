@@ -1,0 +1,22 @@
+const mainMenu = document.querySelector('.main-menu');
+
+function toggleMenu() {
+    mainMenu.style.visibility == '' ? mainMenu.style.visibility = 'hidden' : undefined;
+
+    if(mainMenu.style.visibility == 'hidden'){
+        mainMenu.style.opacity = '1';
+        mainMenu.style.visibility = 'visible';
+        document.body.style.overflow = 'hidden';
+    } else {
+        mainMenu.style.opacity = '0';
+        mainMenu.style.visibility = 'hidden'
+        document.body.style.overflow = 'auto';
+    }
+}
+
+window.addEventListener('resize', (e) => {
+    if(mainMenu.style.visibility == 'hidden'){
+        mainMenu.style.opacity = '1';
+        mainMenu.style.visibility = 'visible';
+    }
+})
