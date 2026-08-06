@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="assets/css/conta.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+    <main>
+        <div class="container container-login active">
+            <div class="card info" id="info-login">
+                <img src="assets/images/logo.webp" alt="Logo Smart Control">
+                <h1>Smart Control</h1>
+            </div>
+            <div class="card form">
+                <form method="get" id="form-login">
+                    <label for="login-email">E-mail:</label>
+                    <input class="input-field" type="email" name="login-email" id="login-email" placeholder="Digite seu e-mail...">
+
+                    <label for="login-senha">Senha:</label>
+                    <input class="input-field" type="password" name="login-senha" id="login-senha" minlength="8" maxlength="14" placeholder="********">
+
+                    <div class="btns">
+                        <input id="btn-cadastro" type="button" value="Cadastrar" onclick="toggleView(this)">
+                        <input class="btn-default" type="submit" value="Entrar">
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="container container-cadastro">
+            <div class="card info" id="info-cadastro">
+                <img src="assets/images/logo.webp" alt="Logo Smart Control">
+                <h1>Smart Control</h1>
+            </div>
+            <div class="card form">
+                <form method="get" id="form-cadastro">
+                    <label for="nome_completo">Nome Completo:</label>
+                    <input class="input-field" type="text" name="nome_completo" id="nome_completo" placeholder="Digite seu nome completo...">
+
+                    <label for="cpf">CPF:</label>
+                    <input class="input-field" type="text" name="cpf" id="cpf" minlength="14" maxlength="14" title="Ex: 123.456.789-10" inputmode="numeric" pattern="\d{3}.\d{3}.\d{3}-\d{2}" oninput="this.value = this.value.replace(/[^\d.-]/g, '')" placeholder="123.456.789-10">
+
+                    <label for="escolaridade">Escolaridade:</label>
+                    <select class="input-field" name="escolaridade" id="escolaridade">
+                        <option value="" selected hidden>Informe a sua escolaridade</option>
+                        <option value="Ensino Fundamental Completo">Ensino Fundamental Completo</option>
+                        <option value="Ensino Médio Completo">Ensino Médio Completo</option>
+                        <option value="Ensino Superior Completo">Ensino Superior Completo</option>
+                    </select>
+
+                    <p>Informe o seu Sexo:</p>
+                    <div class="form-group" id="sexo">
+                        <div class="form-opt">
+                            <input class="input-field" type="radio" name="sexo" id="masculino" value="Masculino">
+                            <label for="masculino">Masculino</label>
+                        </div>
+                        <div class="form-opt">
+                            <input type="radio" name="sexo" id="feminino" value="Feminino">
+                            <label for="feminino">Feminino</label>
+                        </div>
+                        <div class="form-opt">
+                            <input type="radio" name="sexo" id="null" value="Prefiro não dizer">
+                            <label for="null">Prefiro não dizer</label>
+                        </div>
+                    </div>
+
+                    <label for="cadastro-email">E-mail:</label>
+                    <input class="input-field" type="email" name="cadastro-email" id="cadastro-email">
+
+                    <label for="cadastro-senha">Senha:</label>
+                    <input class="input-field" type="password" name="cadastro-senha" id="cadastro-senha" minlength="8" maxlength="14">
+
+                    <div class="form-group" id="termos-e-condicoes">
+                        <div class="form-opt">
+                            <input class="input-field" type="checkbox" name="termos" id="termos">
+                            <label for="termos">Aceito os <a href="#termos">Termos</a> e <a href="#condicoes">Condições</a> do site</label>
+                        </div>
+                    </div>
+                    <div class="btns">
+                        <input class="btn-default" type="submit" value="Cadastrar">
+                        <input id="btn-login" type="button" value="Acessar Conta" onclick="toggleView(this)">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </main>
+    <script src="assets/js/conta.js"></script>
+</body>
+</html>

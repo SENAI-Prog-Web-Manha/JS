@@ -20,3 +20,13 @@ window.addEventListener('resize', (e) => {
         mainMenu.style.visibility = 'visible';
     }
 })
+
+const detailsElements = document.querySelectorAll('details');
+
+document.addEventListener('click', (e) => {
+    detailsElements.forEach((details) => {
+        if(!details.contains(e.target)){
+            details.removeAttribute('open');
+        }
+    })
+})

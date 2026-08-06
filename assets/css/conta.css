@@ -1,0 +1,178 @@
+.container {
+    height: 100dvh;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    grid-template-columns: 0.5fr 1fr;
+    grid-template-areas: "info-login form-login";
+}
+
+.active {
+    display: grid;
+    visibility: visible;
+    opacity: 1;
+}
+
+.card {
+    margin: auto;
+}
+
+.info {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    grid-area: info-login;
+}
+
+.info img {
+    border-radius: 50%; width: 15vw;
+}
+
+.info * {
+    margin: 16px 0;
+}
+
+.form form {
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: var(--black-transparent-2);
+    padding: 20px;
+    border-radius: 16px;
+    box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20);
+    grid-area: form-login;
+}
+
+.form form label, .form form p{
+    margin: 10px 0 5px;
+}
+
+.form form input[type="submit"], .form form input[type="button"], .form form input[type="text"], .form form input[type="email"], .form form input[type="password"], .form form select {
+    height: 40px;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 16px;
+    min-width: 150px;
+    border: none;
+    padding: 10px;
+    color: var(--text-color);
+    font-family: 'Inter', 'sans-serif';
+    font-weight: 400;
+    font-style: italic;
+    font-optical-sizing: auto;
+}
+
+.form form input[type="submit"], .form form input[type="button"] {
+    border-radius: 20px;
+    align-self: center;
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    transition: all 0.3s ease-in-out;
+}
+
+input, select {
+    transition: all 0.3s ease-in-out;
+}
+
+input:hover, select:hover {
+    transform: scale(1.02);
+}
+
+.btns {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-default {
+    box-shadow: 0 0 8px 8px rgba(255, 255, 255, 0.2);
+}
+
+.form form input[type="submit"]:hover, .form form input[type="button"]:hover {
+    transform: scale(1.05);
+    opacity: 50%;
+}
+
+.form form-group {
+    display: flex;
+    gap: 16px;
+    border-radius: 16px;
+    border: none;
+    padding: 10px;
+    color: var(--text-color)
+}
+
+#sexo label {
+    font-family: 'Inter', 'sans-serif';
+    font-weight: 400;
+    font-style: italic;
+    font-optical-sizing: auto;
+}
+
+#termos-e-condicoes {
+    align-self: center;
+    margin: 20px 0;
+}
+
+.error {
+    border: 1px solid red;
+    outline: 1px solid red;
+}
+
+@keyframes toLeft {
+    0% {
+        opacity: 0;
+        grid-template-columns: 1fr 0.5fr;
+        grid-template-areas: "form-login info-login";
+    }
+
+    100% {
+        opacity: 1;
+        grid-template-columns: 0.5fr 1fr;
+        grid-template-areas: "info-login form-login";
+    }
+}
+
+@keyframes toRight {
+    0% {
+        opacity: 0;
+        grid-template-columns: 0.5fr 1fr;
+        grid-template-areas: "info-login form-login";
+    }
+
+    100% {
+        opacity: 1;
+        grid-template-columns: 1fr 0.5fr;
+        grid-template-areas: "form-login info-login";
+    }
+}
+
+@media (max-width: 768px) {
+    .container{
+        grid-template-columns: none !important;
+        grid-template-rows: 0fr 1fr !important;
+        grid-template-areas: 
+        "info-login"
+        "form-login" !important;
+    }
+
+    .info{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 18px 20px;
+    }
+
+    .info * {
+        margin: 0 16px;
+    }
+
+    .form form-group {
+        flex-direction: column;
+    }
+}
