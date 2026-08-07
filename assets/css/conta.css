@@ -98,7 +98,7 @@ input:hover, select:hover {
     opacity: 50%;
 }
 
-.form form-group {
+.form .form-group {
     display: flex;
     gap: 16px;
     border-radius: 16px;
@@ -172,7 +172,7 @@ input:hover, select:hover {
         margin: 0 16px;
     }
 
-    .form form-group {
+    .form .form-group {
         flex-direction: column;
     }
 }

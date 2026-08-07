@@ -214,7 +214,10 @@ footer nav li a:hover {
     padding-left: 6px;
 }
 
-/* Mapa iFrame Estilizado */
+footer nav li h2 {
+    font-size: 1.1rem;
+}
+
 footer iframe {
     border-radius: 16px !important;
     box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.5);

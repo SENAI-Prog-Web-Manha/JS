@@ -1,6 +1,16 @@
 const defaultEmail = 't@teste.com';
 const defaultSenha = 'pass1234';
 const defaultUsername = 'Teste';
+let url = new URL(window.location.href);
+
+window.addEventListener('load', () => {
+    const viewParam = url.searchParams.get('view');
+    if (viewParam === 'cadastro') {
+        toggleView(document.querySelector('#btn-cadastro'));
+    } else {
+        toggleView(document.querySelector('#btn-login'));
+    }
+});
 
 function toggleView(element) {
     const containerLogin = document.querySelector('.container-login');
@@ -10,10 +20,14 @@ function toggleView(element) {
         containerLogin.classList.remove('active');
         containerCadastro.classList.add('active');
         containerCadastro.style.animation = 'toRight 1s -0.3s cubic-bezier(0, 1.5, 1, 0.9) normal forwards'
+        url.searchParams.set('view', 'cadastro');
+        window.history.pushState({}, "", url);
     } else {
         containerCadastro.classList.remove('active');
         containerLogin.classList.add('active');
         containerLogin.style.animation = 'toLeft 1s -0.3s cubic-bezier(0, 1.5, 1, 0.9) normal forwards'
+        url.searchParams.set('view', 'login');
+        window.history.pushState({}, "", url);
     }
 }
 
@@ -30,7 +44,7 @@ function validarCamposVazios(form) {
     let camposVazios = false;
 
     elements.forEach((element) => {
-        if (element.value.trim() === '' || element.checked === false) {
+        if (element.value.trim() === '' || ((element.type === 'checkbox' || element.type === 'radio') && element.checked === false)) {
             element.classList.add('error');
             let labelText = element.labels[0].innerHTML;
             if (!labelText.includes('<span style="color: red;"> (*)</span>')) {
@@ -45,14 +59,6 @@ function validarCamposVazios(form) {
 
     return camposVazios;
 }
-
-window.addEventListener('load', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const viewParam = urlParams.get('view');
-    if (viewParam === 'cadastro') {
-        toggleView(document.querySelector('#btn-cadastro'));
-    }
-});
 
 const formLogin = document.querySelector('#form-login');
 formLogin.addEventListener('submit', (e) => {
