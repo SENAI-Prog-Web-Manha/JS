@@ -12,6 +12,9 @@ function toggleMenu() {
         mainMenu.style.visibility = 'hidden'
         document.body.style.overflow = 'auto';
     }
+
+    // mainMenu.classList.toggle('sidebar-open');
+    // document.body.classList.toggle('hidden-scroll');
 }
 
 window.addEventListener('resize', (e) => {

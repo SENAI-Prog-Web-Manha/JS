@@ -13,9 +13,10 @@ table {
     box-shadow: 4px 4px 16px 0px rgba(0, 0, 0, 0.20);
     overflow: hidden;
     align-self: center;
+    white-space: nowrap;
 }
 
-caption {
+.table-area p {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 15px;
@@ -63,4 +64,10 @@ tfoot {
 tfoot td {
     border-top: 2px solid rgba(205, 206, 236, 0.1);
     color: #ffffff;
+}
+
+@media (max-width: 768px) {
+    .table-area {
+        overflow-x: auto;
+    }
 }
