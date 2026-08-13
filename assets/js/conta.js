@@ -44,16 +44,29 @@ function validarCamposVazios(form) {
     let camposVazios = false;
 
     elements.forEach((element) => {
+        let label = element.labels[0];
         if (element.value.trim() === '' || ((element.type === 'checkbox' || element.type === 'radio') && element.checked === false)) {
             element.classList.add('error');
+
             let labelText = element.labels[0].innerHTML;
             if (!labelText.includes('<span style="color: red;"> (*)</span>')) {
                 element.labels[0].innerHTML += '<span style="color: red;"> (*)</span>';
             }
+
+            // if(label.childElementCount < 1){
+            //     let errorSpan = document.createElement('span');
+            //     errorSpan.innerText = " (*)";
+            //     errorSpan.classList.add('color-error');
+            //     label.append(errorSpan);
+            // }
+
             camposVazios = true;
         } else {
             element.classList.remove('error');
+
             element.labels[0].innerHTML = element.labels[0].innerHTML.replace('<span style="color: red;"> (*)</span>', '');
+
+            // label.children[0].remove();
         }
     });
 

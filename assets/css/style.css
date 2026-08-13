@@ -94,7 +94,7 @@ header {
     position: relative;
 }
 
-.main-menu a, .user-menu a, .main-menu summary, .user-menu summary {
+.main-menu a, .main-menu button, .main-menu summary, .user-menu a, .user-menu button, .user-menu summary {
     display: block;
     padding: 10px 20px;
     color: var(--text-color);
@@ -105,9 +105,13 @@ header {
     transition: all 0.3s ease-in-out;
     border-radius: 8px;
     cursor: pointer;
+    background: none;
+    outline: none;
+    border: none;
+    text-align: left;
 }
 
-.main-menu a:hover, .user-menu a:hover, .main-menu summary:hover, .user-menu summary:hover {
+.main-menu a:hover, .main-menu button:hover, .main-menu summary:hover, .user-menu a:hover, .user-menu button:hover, .user-menu summary:hover {
     background-color: var(--hover-bg);
     color: #ffffff;
 }
@@ -171,7 +175,7 @@ details[open]::details-content {
     transform: translateY(0);
 }
 
-.sub-menu a {
+.sub-menu a, .sub-menu button {
     padding: 10px 20px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -179,7 +183,7 @@ details[open]::details-content {
     font-size: 0.9rem;
 }
 
-.sub-menu a:hover {
+.sub-menu a:hover, .sub-menu button:hover {
     background-color: var(--hover-bg);
     padding-left: 25px;
 }

@@ -124,6 +124,10 @@ input:hover, select:hover {
     outline: 1px solid red;
 }
 
+.color-error {
+    color: #ff0000;
+}
+
 @keyframes toLeft {
     0% {
         opacity: 0;
