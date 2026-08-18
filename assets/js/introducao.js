@@ -1,5 +1,5 @@
-print("Olá mundo!") // Clássico Hello World
-print(2+3)
+// print("Olá mundo!") // Clássico Hello World
+// print(2+3)
 
 // console.log("1" + "1")
 // console.log(1 + "1")
@@ -8,39 +8,31 @@ print(2+3)
 // console.log(1 - "1")
 // console.log("1" - "1")
 
-// class Aluno {
-//     constructor(nome, idade, cidade) {
-//         this.nome = nome
-//         this.idade = idade
-//         this.cidade = cidade
-//     }
-// }
-
 // var nomeAluno = "João" // Declaração de variável obsoleta
 // let idadeAluno = 17 // Declaração de variável moderna
-// const cidadeAluno = "São Paulo" // Declaração de constante (valor imutável)
+// const CIDADE_ALUNO = "São Paulo" // Declaração de constante (valor imutável)
 // nomeLinguagem = "JavaScript" // Declaração de variável de forma global, mas sem palavra-chave (não recomendado)
 
 // console.log(nomeAluno);
 // console.log(idadeAluno);
-// console.log(cidadeAluno);
+// console.log(CIDADE_ALUNO);
 // console.log(nomeLinguagem);
 
 // const podeDirigir = (idade) => {
 //     return idade >= 18 ? true : false;
 // }
 
-// const dadosAluno = {
+// const DADOS_ALUNO = {
 //     nome: "João",
 //     idade: 17,
 //     cidade: "São Paulo",
 //     podeDirigir: podeDirigir(this.idade)
 // }
 
-// console.log(dadosAluno);
+// console.log(DADOS_ALUNO);
 
-// console.log("O aluno " + dadosAluno.nome + " tem " + dadosAluno.idade + " anos e mora em " + dadosAluno.cidade + ".")
-// console.log(`O aluno ${dadosAluno.nome} tem ${dadosAluno.idade} anos e mora em ${dadosAluno.cidade}.`)
+// console.log("O aluno " + DADOS_ALUNO.nome + " tem " + DADOS_ALUNO.idade + " anos e mora em " + DADOS_ALUNO.cidade + ".")
+// console.log(`O aluno ${DADOS_ALUNO.nome} tem ${DADOS_ALUNO.idade} anos e mora em ${DADOS_ALUNO.cidade}.`)
 
 // let valor_a = 10
 // let valor_b = 30.756
@@ -52,23 +44,23 @@ print(2+3)
 // console.log("Divisão: " + (valor_a / valor_b)) // Divisão
 // console.log("Resto da divisão: " + (valor_a % valor_b)) // Resto da divisão
 // console.log("Divisão (truncada): " + Math.trunc(valor_a / valor_b)) // Divisão
-// console.log("Exponenciação: " + Math.pow(valor_a, valor_b)) // Exponenciação
+// console.log("Exponenciação: " + Math.pow(3, 2)) // Exponenciação
 
-// console.log(Number(nomeAluno))
-// console.log(isNaN(idadeAluno))
-// console.log(String(idadeAluno))
-// console.log(Boolean(idadeAluno))
-// console.log(typeof nomeAluno)
+// console.log(Number(DADOS_ALUNO.nome))
+// console.log(isNaN(DADOS_ALUNO.idade))
+// console.log(String(DADOS_ALUNO.idade))
+// console.log(Boolean(DADOS_ALUNO.linguagem))
+// console.log(typeof DADOS_ALUNO.nome)
 
-// dadosAluno.nome = "Maria"
-// dadosAluno.idade = 20
+// DADOS_ALUNO.nome = "Maria"
+// DADOS_ALUNO.idade = 17
 
-// if (dadosAluno.idade >= 16 && dadosAluno.idade < 18) {
-//     console.log(`A aluna ${dadosAluno.nome} tem ${dadosAluno.idade} anos e pode votar, mas não pode dirigir.`)
-// } else if (dadosAluno.idade >= 18) {
-//     console.log(`A aluna ${dadosAluno.nome} tem ${dadosAluno.idade} anos, deve votar, e pode dirigir.`)
+// if (DADOS_ALUNO.idade >= 16 && DADOS_ALUNO.idade < 18) {
+//     console.log(`A aluna ${DADOS_ALUNO.nome} tem ${DADOS_ALUNO.idade} anos e pode votar, mas não pode dirigir.`)
+// } else if (DADOS_ALUNO.idade >= 18) {
+//     console.log(`A aluna ${DADOS_ALUNO.nome} tem ${DADOS_ALUNO.idade} anos, deve votar, e pode dirigir.`)
 // } else {
-//     console.log(`A aluna ${dadosAluno.nome} tem ${dadosAluno.idade} anos e não pode votar nem dirigir.`)
+//     console.log(`A aluna ${DADOS_ALUNO.nome} tem ${DADOS_ALUNO.idade} anos e não pode votar nem dirigir.`)
 // }
 
 // function montarPredio() {
@@ -81,9 +73,9 @@ print(2+3)
 //         predio.push([])
 //         for (let apartamento = 1; apartamento <= quantidadeApartamentos; apartamento++) {
 //             if (apartamento > 9){
-//                 predio[andar-1].push(Number(`${apartamento}${andar}`))
+//                 predio[andar-1].push(Number(`${andar}${apartamento}`))
 //             } else {
-//                 predio[andar-1].push(Number(`${apartamento}0${andar}`))
+//                 predio[andar-1].push(Number(`${andar}0${apartamento}`))
 //             }
 
 //             if (apartamento > 1){
@@ -95,6 +87,16 @@ print(2+3)
 //     console.clear()
 //     console.log("Olympo Edifícios")
 //     console.table(predio)
+// }
+
+// montarPredio()
+
+// class Aluno {
+//     constructor(nome, idade, cidade) {
+//         this.nome = nome
+//         this.idade = idade
+//         this.cidade = cidade
+//     }
 // }
 
 // setTimeout(() => {
@@ -127,5 +129,5 @@ print(2+3)
 
 // setInterval(() => {
 //     let bemVindoElement = document.getElementById("bem-vindo")
-//     bemVindoElement.innerHTML = `Bem-vindo ao sistema do Smart Control<br>Data e hora atual: ${new Date().toLocaleString()}`
+//     bemVindoElement.innerHTML = `Bem-vindo ao sistema do Smart Control<br>Data e hora atual: ${new Date().toLocaleString().slice(0, -3)}`
 // }, 1*1000)
