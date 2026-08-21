@@ -130,7 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 painelConfig.style.maxHeight = '0px';
                 painelConfig.style.overflow = 'hidden';
             } else {
-                painelConfig.style.maxHeight = painelConfig.scrollHeight + 'px';
+                painelConfig.style.transition = 'max-height 0.3s ease-in-out'
+                painelConfig.style.maxHeight = (painelConfig.scrollHeight + 100) + 'px';
             }
 
             if (icon) {
@@ -147,8 +148,41 @@ document.addEventListener('DOMContentLoaded', function() {
     const inputData = document.getElementById('input-data');
 
     if (inputIp) {
+        function splitIp(value){
+            if (value.length > 9) {
+                value = `${value.slice(0, 3)}.${value.slice(3, 6)}.${value.slice(6, 9)}.${value.slice(9, 12)}`
+            } else if (value.length > 6){
+                value = `${value.slice(0, 3)}.${value.slice(3, 6)}.${value.slice(6, 9)}`
+            } else if (value.length > 3){
+                value = `${value.slice(0, 3)}.${value.slice(3, 6)}`
+            }
+            return value.split('.');
+        }
+
         inputIp.addEventListener('input', (e) => {
-            e.target.value = e.target.value.replace(/[^0-9.]/g, '').slice(0, 15);
+            let v = e.target.value.replace(/[^0-9]/g, '');
+            let parts = splitIp(v);
+            
+            if (parts.length > 4) {
+                parts = parts.slice(0, 4);
+            }
+            
+            parts = parts.map((part) => {
+                if (part === '') return '';
+
+                let num = parseInt(part, 10);
+                if (num > 255) num = 255;
+
+                return num.toString();
+            })
+
+            let formatted = parts.join('.');
+            
+            if (v.endsWith('.') && parts.length < 4 && parts[parts.length - 1] !== '') {
+                formatted += '.';
+            }
+            
+            e.target.value = formatted;
         });
     }
 
@@ -161,9 +195,15 @@ document.addEventListener('DOMContentLoaded', function() {
     if (inputTel) {
         inputTel.addEventListener('input', (e) => {
             let v = e.target.value.replace(/\D/g, '').slice(0, 11);
-            if (v.length > 6) v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
-            else if (v.length > 2) v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
-            else if (v.length > 0) v = `(${v}`;
+            
+            if (v.length > 6) {
+                v = `(${v.slice(0, 2)}) ${v.slice(2, 7)}-${v.slice(7)}`;
+            } else if (v.length > 2) {
+                v = `(${v.slice(0, 2)}) ${v.slice(2)}`;
+            } else if (v.length > 0) {
+                v = `(${v}`;
+            }
+
             e.target.value = v;
         });
     }
@@ -171,8 +211,13 @@ document.addEventListener('DOMContentLoaded', function() {
     if (inputData) {
         inputData.addEventListener('input', (e) => {
             let v = e.target.value.replace(/\D/g, '').slice(0, 8);
-            if (v.length > 4) v = `${v.slice(0, 2)}/${v.slice(2, 4)}/${v.slice(4)}`;
-            else if (v.length > 2) v = `${v.slice(0, 2)}/${v.slice(2)}`;
+
+            if (v.length > 4) {
+                v = `${v.slice(0, 2)}/${v.slice(2, 4)}/${v.slice(4)}`;
+            } else if (v.length > 2) {
+                v = `${v.slice(0, 2)}/${v.slice(2)}`;
+            }
+
             e.target.value = v;
         });
     }
@@ -190,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const dataVal = inputData ? inputData.value : '';
 
             // Regex IP
-            const regexIP = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
+            const regexIP = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
             if (!regexIP.test(ipVal)) {
                 inputIp.classList.add('is-invalid');
                 inputIp.classList.remove('is-valid');

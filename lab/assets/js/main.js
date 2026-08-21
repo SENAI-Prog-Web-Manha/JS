@@ -116,7 +116,8 @@ $(document).ready(function() {
         const data = $('#input-data').val();
 
         // Expressão Regular simples para formato IP
-        const regexIP = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
+        // const regexIP = /^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$/;
+        const regexIP = /^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/;
         if (!regexIP.test(ip)) {
             $('#input-ip').addClass('is-invalid');
             valido = false;
